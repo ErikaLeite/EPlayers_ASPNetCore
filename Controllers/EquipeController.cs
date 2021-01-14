@@ -76,5 +76,17 @@ namespace EPlayers_ASPNetCore.Controllers
             //Método utilizado para redirecionamento para a page escolhida. Neste caso, manteremos na page Equipe
             return LocalRedirect("~/Equipe/Listar"); 
         }
+        
+        //http://localhost5000/Equipe/(id a ser excluido)
+        [Route("{id}")]
+
+        public IActionResult Excluir(int id)
+        {
+            equipeModel.Delete(id);
+            ViewBag.Equipes = equipeModel.ReadAll();
+
+            return LocalRedirect("~/Equipe/Listar");
+        }
+
     }
 }

@@ -39,6 +39,7 @@
                 <td>@equipeListar.IdEquipe</td>@*Especificação de colunas da tabela*@
                 <td>@equipeListar.Nome</td>
                 <td><img src="/img/Eqquipes/@equipeListar.Imagem" alt = "Imagem da equipe @equipeListar.Nome" width="40"></td>
+                <td><a asp-asp-area= "Link para exclusão de Equipe" asp-controller="Equipe" asp-action="Excluir" asp-route-id = "@equipeListar.IdEquipe">Excluir</a></td>
             </tr>
         }
     </tbody>
