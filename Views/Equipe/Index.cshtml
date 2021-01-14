@@ -6,7 +6,7 @@
 }
 
 @*definimos o método para enviar as informações --- depois, qual a ação a ser tomada. Chamamos o método definido no Controller*@
-<form method= "POST" action='@Url.Action("Cadastrar")'>
+<form method= "POST" action='@Url.Action("Cadastrar")' enctype="multipart/form-data">
 
     <label>ID</label>
     @*na função do name é fazer com que o Controller associe os sets, dessa forma, devemos inserir as mesmas informações do objeto instaciado*@
@@ -16,7 +16,7 @@
     <input type = "text" name = "Nome" />
 
     <label>Imagem</label>
-    <input type = "text" name = "Imagem" />
+    <input type = "file" name = "Imagem" />
 
     <button type = "submit">Cadastrar</button>
 
@@ -38,7 +38,7 @@
             <tr>@*Linhas da tabela*@
                 <td>@equipeListar.IdEquipe</td>@*Especificação de colunas da tabela*@
                 <td>@equipeListar.Nome</td>
-                <td>@equipeListar.Imagem</td>
+                <td><img src="/img/Eqquipes/@equipeListar.Imagem" alt = "Imagem da equipe @equipeListar.Nome" width="40"></td>
             </tr>
         }
     </tbody>

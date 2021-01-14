@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using EPlayers_ASPNetCore.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -35,7 +36,38 @@ namespace EPlayers_ASPNetCore.Controllers
             //Criaremos, posteriormente, um formulário que irá coletar as informações colocadas neste método, associando-os à instância de uma novo objeto Equipe (novaEquipe)
             novaEquipe.IdEquipe   = Int32.Parse( form["IdEquipe"] );
             novaEquipe.Nome       = form["Nome"];
-            novaEquipe.Imagem     = form["Imagem"];
+            
+            //Inicio Upload
+            if (form.Files.Count > 0)
+            {
+                //recebemos o arquivo enviado pelo usuário e armazenamos na variavel file
+                var file = form.Files[0];
+                var folder = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot/img/Equipes");
+
+                //verificamos se a pasta já existe e se não, a criamos 
+                if (!Directory.Exists(folder))
+                {
+                    Directory.CreateDirectory(folder);
+                }
+
+                                        //localhost:5001 envia para       wwwroor/img/   Equipes/ foto.jpg
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/", folder, file.FileName);
+
+                //salvaremos as informações
+                using(var stream = new FileStream(path, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+
+                //salvar no CSV
+                novaEquipe.Imagem = file.FileName;
+            }
+            else
+            {
+                novaEquipe.Imagem = "padrao.png";
+            }
+            //Término
+
 
             //Ao chegar neste momento do código, as informações serão enviadas ao Método Create na classe Equipe que serve para inseri-las nas linhas do arquivo CSV
             equipeModel.Create(novaEquipe);
