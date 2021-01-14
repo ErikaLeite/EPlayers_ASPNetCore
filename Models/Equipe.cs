@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using EPlayers_ASPNetCore.Interfaces;
@@ -67,7 +68,7 @@ namespace EPlayers_ASPNetCore.Models
 
                 Equipe novaEquipe   = new Equipe();
 
-                novaEquipe.IdEquipe = int.Parse (linha[0]);
+                novaEquipe.IdEquipe = Int32.Parse (linha[0]);
                 novaEquipe.Nome     = linha [1];
                 novaEquipe.Imagem   = linha [2];
 

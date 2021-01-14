@@ -1,0 +1,45 @@
+@model Equipe
+
+@{
+    //alteramos o nome/título da página
+    ViewData["Title"] = "Equipes";
+}
+
+@*definimos o método para enviar as informações --- depois, qual a ação a ser tomada. Chamamos o método definido no Controller*@
+<form method= "POST" action='@Url.Action("Cadastrar")'>
+
+    <label>ID</label>
+    @*na função do name é fazer com que o Controller associe os sets, dessa forma, devemos inserir as mesmas informações do objeto instaciado*@
+    <input type = "text" name = "IdEquipe" />
+
+    <label>Nome</label>
+    <input type = "text" name = "Nome" />
+
+    <label>Imagem</label>
+    <input type = "text" name = "Imagem" />
+
+    <button type = "submit">Cadastrar</button>
+
+</form>
+
+<table class = "table table-striped table-responsive">
+
+    @*Divisão de colunas da tabela com o cabeçalho*@
+    <thead>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Foto</th>
+    </thead>
+
+    @*Corpo da tabela*@
+    <tbody>
+        @foreach (Equipe equipeListar in ViewBag.Equipes)
+        {
+            <tr>@*Linhas da tabela*@
+                <td>@equipeListar.IdEquipe</td>@*Especificação de colunas da tabela*@
+                <td>@equipeListar.Nome</td>
+                <td>@equipeListar.Imagem</td>
+            </tr>
+        }
+    </tbody>
+</table>

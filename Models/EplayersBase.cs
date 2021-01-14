@@ -24,7 +24,7 @@ namespace EPlayers_ASPNetCore.Models
                     Directory.CreateDirectory(folder);
                 }
                 //assim como os arquivos .csv
-                if(!Directory.Exists(_path))
+                if(!File.Exists(_path))
                 {
                     File.Create(_path);
                 }

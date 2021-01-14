@@ -5,4 +5,8 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    @*criaremos um link na home para acessar a page Equipes*@
+    @*configuramos o link para que acesse a classe EquipeControler e definimos a ação Index (configurada no Controller para listar as equipes cadastradas)*@
+    <a class = "navbar-brand" asp-area = "" asp-controller = "Equipe" asp-action = "Index">Cadatrar um clã</a>
 </div>
