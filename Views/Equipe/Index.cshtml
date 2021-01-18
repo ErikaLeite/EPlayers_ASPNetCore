@@ -4,21 +4,30 @@
     //alteramos o nome/título da página
     ViewData["Title"] = "Equipes";
 }
+<div class="titulo_da_pagina">
+    <h1>Cadastro de @ViewData["Title"]</h1>
+</div>
 
 @*definimos o método para enviar as informações --- depois, qual a ação a ser tomada. Chamamos o método definido no Controller*@
-<form method= "POST" action='@Url.Action("Cadastrar")' enctype="multipart/form-data">
+<form class="cadastro" method= "POST" action='@Url.Action("Cadastrar")' enctype="multipart/form-data">
 
-    <label>ID</label>
-    @*na função do name é fazer com que o Controller associe os sets, dessa forma, devemos inserir as mesmas informações do objeto instaciado*@
-    <input type = "text" name = "IdEquipe" />
+    <div class="campo">
+        <label>ID</label>
+        @*na função do name é fazer com que o Controller associe os sets, dessa forma, devemos inserir as mesmas informações do objeto instaciado*@
+        <input type = "text" name = "IdEquipe" />
+    </div>
 
-    <label>Nome</label>
-    <input type = "text" name = "Nome" />
+    <div class="campo">
+        <label>Nome</label>
+        <input type = "text" name = "Nome" />   
+    </div>
+   
+    <div class="campo">
+        <label>Imagem</label>
+        <input type = "file" name = "Imagem" />
+    </div>
 
-    <label>Imagem</label>
-    <input type = "file" name = "Imagem" />
-
-    <button type = "submit">Cadastrar</button>
+    <button class = "gradient btn" type = "submit">Cadastrar</button>
 
 </form>
 

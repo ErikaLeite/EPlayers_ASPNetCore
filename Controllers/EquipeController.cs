@@ -51,7 +51,7 @@ namespace EPlayers_ASPNetCore.Controllers
                 }
 
                                         //localhost:5001 envia para       wwwroor/img/   Equipes/ foto.jpg
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/", folder, file.FileName);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", folder, file.FileName);
 
                 //salvaremos as informações
                 using(var stream = new FileStream(path, FileMode.Create))
