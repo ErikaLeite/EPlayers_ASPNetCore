@@ -5,7 +5,7 @@
 }
 
 <div class="titulo_pagina">
-    <h1>Cadastr de @ViewData["Title"]</h1>
+    <h1>Cadastro de @ViewData["Title"]</h1>
 </div>
 
 <form method="POST" action='@Url.Action("Cadastrar")' class="cadastro">
@@ -17,7 +17,14 @@
 
     <div class="campo">
         <label>ID Equipe</label>
-        <input type="text" name="IdEquipe" />
+        <select name="IdEquipe" id="IdEquipe">
+            <option value="0">Selecione uma opção</option>
+            @foreach (var item in ViewBag.Equipes)
+            {
+                <option value="@item.IdEquipe">@item.Nome
+                }</option>
+            }
+        </select>
     </div>
 
     <div class="campo">

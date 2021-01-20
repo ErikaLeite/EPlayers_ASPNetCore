@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using EPlayers_ASPNetCore.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace EPlayers_ASPNetCore.Controllers
 {
@@ -20,6 +21,7 @@ namespace EPlayers_ASPNetCore.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.UserName = HttpContext.Session.GetString("_UserName"); //Linkamos a sessão com a home para aparecer o que setamos no .cshtml
             return View();
         }
 

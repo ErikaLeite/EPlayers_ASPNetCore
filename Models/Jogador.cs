@@ -11,7 +11,7 @@ namespace EPlayers_ASPNetCore.Models
         public int IdEquipe { get; set; }
         public string Email { get; set; }        
         public string Senha { get; set; }        
-        private const string PATH = "Database/Jogador.csv";
+        public string PATH = "Database/Jogador.csv";
         public Jogador()
         {
             CreateFolderAndFile(PATH);

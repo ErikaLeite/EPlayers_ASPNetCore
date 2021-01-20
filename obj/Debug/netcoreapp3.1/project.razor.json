@@ -14397,6 +14397,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\erika\\Desktop\\PROJETOS SENAI\\MVC\\EPlayers_ASPNetCore\\Views\\Login\\Index.cshtml",
+      "TargetPath": "Views\\Login\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\erika\\Desktop\\PROJETOS SENAI\\MVC\\EPlayers_ASPNetCore\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"

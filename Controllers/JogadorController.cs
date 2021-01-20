@@ -10,13 +10,18 @@ namespace EPlayers_ASPNetCore.Controllers
     public class JogadorController : Controller
     {
         Jogador jogadorModel = new Jogador();
+        Equipe equipeModel = new Equipe();
+
 
         [Route("Listar")]
         public IActionResult Index()
         {
+            ViewBag.Equipes   = equipeModel.ReadAll();
             ViewBag.Jogadores = jogadorModel.ReadAll();
+
             return View();
         }
+        
         [Route("Cadastrar")]
         public IActionResult Cadastrar(IFormCollection form)
         {

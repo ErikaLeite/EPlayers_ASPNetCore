@@ -23,6 +23,15 @@ namespace EPlayers_ASPNetCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDistributedMemoryCache();
+            //Método para configurar a sessão como tempo, uso de cookies e etc.
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromHours(1);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+            
             services.AddControllersWithViews();
         }
 
@@ -45,6 +54,9 @@ namespace EPlayers_ASPNetCore
             app.UseRouting();
 
             app.UseAuthorization();
+
+            //Precisamos adicionar este método para que as info inseridas no Configuration sejam validadas
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
